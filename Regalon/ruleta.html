@@ -1,0 +1,1290 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6c3ce8">
+<meta name="description" content="Ruleta Pozito Regalón 2026">
+<title>🎁 Ruleta Pozito Regalón 2026</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: white;
+    background:
+        radial-gradient(circle at 50% -10%, #895cf5, transparent 45%),
+        radial-gradient(circle at 10% 90%, #168bdb, transparent 35%),
+        radial-gradient(circle at 90% 90%, #f05b91, transparent 30%),
+        linear-gradient(135deg, #24104f, #321b72 45%, #140d35);
+}
+
+/* ESCENA */
+
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.scene::before {
+    content: "⭐ 🎁 ✨ 🏆 ✨ 🎁 ⭐";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 5px;
+    opacity: .35;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scene::after {
+    content: "🎁 ⭐ 🏆 ✨ 🏆 ⭐ 🎁";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 5px;
+    opacity: .3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* TITULO */
+
+.titulo {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.titulo h1 {
+    margin: 0;
+    color: #ffe082;
+    font-size: clamp(22px, 4vw, 42px);
+    font-weight: 900;
+    text-shadow:
+        0 0 10px #ffd54f,
+        0 0 25px #ff9800,
+        0 4px 10px #0008;
+}
+
+.titulo p {
+    margin: 5px 0 0;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: .9;
+}
+
+/* PELOTITAS */
+
+.ball {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    color: #111;
+    font-weight: 900;
+    user-select: none;
+    word-break: break-word;
+    border: 4px solid rgba(255,255,255,.7);
+    box-shadow:
+        inset 0 0 20px #fff,
+        inset -10px -12px 20px #0003,
+        0 7px 20px #0008,
+        0 0 20px #ffffff33;
+    transition: opacity .3s, transform .3s, box-shadow .3s;
+    z-index: 5;
+}
+
+.ball .nombre {
+    font-size: 14px;
+    line-height: 1.1;
+    max-width: 100px;
+}
+
+.ball .puntos {
+    margin-top: 5px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: #00000022;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* GANADOR */
+
+.win {
+    transform: scale(1.8)!important;
+    z-index: 999!important;
+    border-color: white;
+    box-shadow:
+        0 0 25px white,
+        0 0 60px #ffd700,
+        0 0 120px #ff9800,
+        inset 0 0 25px white!important;
+    animation: ganadorBrillo .6s infinite alternate;
+}
+
+@keyframes ganadorBrillo {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.5); }
+}
+
+/* TEXTO GANADOR */
+
+#ganador {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    color: #ffe082;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 0 0 12px #ffd700, 0 3px 8px #000;
+}
+
+/* INFORMACION */
+
+.infoRuleta {
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: #0008;
+    border: 1px solid #ffd54f66;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+}
+
+/* CONTROLES */
+
+.controls {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+    z-index: 2000;
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 12px 18px;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 6px 18px #0008;
+    transition: .25s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+#start {
+    background: linear-gradient(135deg, #15803d, #22c55e);
+}
+
+#stop {
+    background: linear-gradient(135deg, #991b1b, #ef4444);
+}
+
+#conteo {
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+}
+
+#detenerConteo {
+    background: linear-gradient(135deg, #6b21a8, #a855f7);
+}
+
+#historial {
+    background: linear-gradient(135deg, #92400e, #f59e0b);
+}
+
+#recargar {
+    background: linear-gradient(135deg, #374151, #6b7280);
+}
+
+/* MODAL GANADOR */
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 390px;
+    max-width: 92vw;
+    padding: 32px;
+    border-radius: 28px;
+    background: linear-gradient(145deg, white, #f1eaff);
+    color: #222;
+    text-align: center;
+    z-index: 5000;
+    box-shadow: 0 0 30px #ffd700, 0 0 80px #895cf5, 0 25px 70px #000b;
+}
+
+.modal h1 {
+    margin: 0;
+    color: #6c3ce8;
+    font-size: 30px;
+}
+
+.modal h2 {
+    margin: 20px 0 10px;
+    color: #168bdb;
+    font-size: 30px;
+    word-break: break-word;
+}
+
+.puntosGanador {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: #fff3cd;
+    color: #92400e;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.cerrar {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+/* CONTEO */
+
+#mensajeConteo {
+    margin-top: 20px;
+    color: #1d4ed8;
+    font-size: 19px;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.numero {
+    margin: 15px;
+    color: #dc2626;
+    font-size: 65px;
+    font-weight: 900;
+    text-shadow: 0 4px 10px #0003;
+}
+
+/* HISTORIAL */
+
+.historialModal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 520px;
+    max-width: 92vw;
+    max-height: 82vh;
+    padding: 30px;
+    border-radius: 28px;
+    background: linear-gradient(145deg, white, #f1eaff);
+    color: #222;
+    z-index: 6000;
+    box-shadow: 0 0 45px #895cf5, 0 25px 70px #000b;
+}
+
+.historialModal h1 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #6c3ce8;
+    font-size: 25px;
+}
+
+.listaHistorial {
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+.itemHistorial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, white, #f1eaff);
+    box-shadow: 0 4px 12px #0002;
+}
+
+.numeroGanador {
+    color: #6c3ce8;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.nombreGanador {
+    color: #168bdb;
+    text-align: right;
+    font-weight: 900;
+}
+
+.nombreGanador small {
+    color: #777;
+    font-weight: normal;
+}
+
+.sinGanadores {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+    font-weight: bold;
+}
+
+.cerrarHistorial {
+    display: block;
+    margin: 20px auto 0;
+    background: linear-gradient(135deg, #991b1b, #dc2626);
+}
+
+/* SIN PARTICIPANTES */
+
+.sinParticipantes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    max-width: 600px;
+    padding: 35px;
+    border-radius: 25px;
+    background: #000b;
+    border: 2px solid #ffe082;
+    text-align: center;
+    z-index: 100;
+}
+
+.sinParticipantes h2 {
+    color: #ffe082;
+    margin: 0 0 15px;
+}
+
+.sinParticipantes p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px) {
+    .ball {
+        width: 85px;
+        height: 85px;
+    }
+
+    .ball .nombre {
+        font-size: 10px;
+        max-width: 70px;
+    }
+
+    .ball .puntos {
+        font-size: 9px;
+        padding: 2px 5px;
+    }
+
+    .titulo {
+        top: 10px;
+    }
+
+    .titulo h1 {
+        font-size: 22px;
+    }
+
+    .titulo p {
+        font-size: 11px;
+    }
+
+    #ganador {
+        top: 70px;
+        font-size: 18px;
+        width: 95%;
+    }
+
+    .infoRuleta {
+        top: 100px;
+        font-size: 11px;
+    }
+
+    .controls {
+        bottom: 10px;
+    }
+
+    .controls button {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .modal {
+        padding: 25px 20px;
+    }
+
+    .itemHistorial {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nombreGanador {
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene" id="scene">
+
+    <div class="titulo">
+        <h1>🎁 RULETA POZITO REGALÓN 2026 🎁</h1>
+        <p>🏆 PUESTOS 11 EN ADELANTE • MÍNIMO 20 PUNTOS</p>
+    </div>
+
+    <div id="ganador"></div>
+
+    <div class="infoRuleta" id="infoRuleta"></div>
+
+</div>
+
+<!-- CONTROLES -->
+
+<div class="controls">
+
+    <button id="start" onclick="iniciar()">
+        🎡 GIRAR
+    </button>
+
+    <button id="stop" onclick="detener()">
+        🛑 DETENER
+    </button>
+
+    <button id="conteo" onclick="iniciarConteo()">
+        ⏳ CONTEO
+    </button>
+
+    <button id="detenerConteo" onclick="pararConteo()">
+        ✋ DETENER CONTEO
+    </button>
+
+    <button id="historial" onclick="mostrarHistorial()">
+        📜 HISTORIAL
+    </button>
+
+    <button id="recargar" onclick="recargarParticipantes()">
+        🔄 ACTUALIZAR
+    </button>
+
+</div>
+
+<!-- MODAL GANADOR -->
+
+<div class="modal" id="modal">
+
+    <div class="cerrar" onclick="cerrarModal()">❌</div>
+
+    <h1>🎉 ¡GANADOR! 🎉</h1>
+
+    <h2 id="nombreGanador"></h2>
+
+    <div class="puntosGanador" id="puntosGanador"></div>
+
+    <div id="mensajeConteo"></div>
+
+    <div class="numero" id="numero"></div>
+
+</div>
+
+<!-- HISTORIAL -->
+
+<div class="historialModal" id="historialModal">
+
+    <div class="cerrar" onclick="cerrarHistorial()">❌</div>
+
+    <h1>🏆📜 HISTORIAL DE GANADORES</h1>
+
+    <div class="listaHistorial" id="listaHistorial"></div>
+
+    <button class="cerrarHistorial" onclick="cerrarHistorial()">
+        Cerrar
+    </button>
+
+</div>
+
+<script>
+
+/* =====================================================
+   CLAVES DEL SISTEMA POZITO REGALÓN 2026
+===================================================== */
+
+const KEY_JUGADORES = "POZITO_REGALON_2026_JUGADORES_V1";
+const KEY_RULETA = "POZITO_REGALON_2026_RULETA_V1";
+const KEY_HISTORIAL = "POZITO_REGALON_2026_HISTORIAL_V1";
+
+/*
+   IMPORTANTE:
+   La página principal usa:
+   POZITO_REGALON_2026_JUGADORES_V1
+
+   La ruleta usa la misma clave para leer
+   los participantes y sus puntajes.
+*/
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let todos = [];
+let jugadores = [];
+let historial = [];
+
+let balls = [];
+let animacion = null;
+let girando = false;
+
+let ganadorActual = null;
+let ganadorJugador = null;
+
+let tiempoConteo = null;
+
+/* =====================================================
+   CARGAR HISTORIAL
+===================================================== */
+
+function cargarHistorial() {
+    try {
+        const datos = JSON.parse(
+            localStorage.getItem(KEY_HISTORIAL)
+        );
+
+        historial = Array.isArray(datos) ? datos : [];
+
+    } catch (error) {
+        historial = [];
+    }
+}
+
+/* =====================================================
+   CALCULAR TOTAL
+===================================================== */
+
+function calcularTotal(jugador) {
+
+    if (
+        !jugador ||
+        !jugador.puntos ||
+        typeof jugador.puntos !== "object"
+    ) {
+        return 0;
+    }
+
+    return Object.values(jugador.puntos).reduce(
+        (total, puntos) => {
+            const valor = Number(puntos);
+
+            return total + (
+                Number.isFinite(valor) && valor > 0
+                    ? valor
+                    : 0
+            );
+        },
+        0
+    );
+}
+
+/* =====================================================
+   CARGAR PARTICIPANTES
+===================================================== */
+
+function cargarDatos() {
+
+    try {
+        const datos = JSON.parse(
+            localStorage.getItem(KEY_JUGADORES)
+        );
+
+        todos = Array.isArray(datos) ? datos : [];
+
+    } catch (error) {
+        todos = [];
+    }
+
+    todos = todos
+        .filter(jugador =>
+            jugador &&
+            typeof jugador.nombre === "string"
+        )
+        .map(jugador => ({
+            ...jugador,
+            puntos:
+                jugador.puntos &&
+                typeof jugador.puntos === "object" &&
+                !Array.isArray(jugador.puntos)
+                    ? jugador.puntos
+                    : {},
+            total: calcularTotal(jugador)
+        }));
+
+    /*
+       ORDENAR RANKING GENERAL
+    */
+
+    todos.sort(
+        (a, b) => b.total - a.total
+    );
+
+    /*
+       PUESTOS 1 AL 10 NO PARTICIPAN.
+
+       PARTICIPAN DESDE EL PUESTO 11
+       CON UN MÍNIMO DE 20 PUNTOS.
+    */
+
+    jugadores = todos
+        .slice(10)
+        .filter(jugador => jugador.total >= 20);
+
+    /*
+       GUARDAR COPIA DE PARTICIPANTES
+       DE LA RULETA.
+    */
+
+    localStorage.setItem(
+        KEY_RULETA,
+        JSON.stringify(jugadores)
+    );
+
+    actualizarInfo();
+}
+
+/* =====================================================
+   INFORMACIÓN
+===================================================== */
+
+function actualizarInfo() {
+
+    const info = document.getElementById("infoRuleta");
+
+    if (!info) return;
+
+    if (jugadores.length === 0) {
+        info.textContent = "⚠️ No hay participantes disponibles";
+        return;
+    }
+
+    info.textContent =
+        "🎁 " + jugadores.length +
+        " participantes en la ruleta";
+}
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+const colores = [
+    "#e8b932",
+    "#895cf5",
+    "#168bdb",
+    "#f05b91",
+    "#13a887",
+    "#f0a52b",
+    "#74c69d",
+    "#ffcf56",
+    "#ef476f",
+    "#52b788",
+    "#c77dff",
+    "#48cae4"
+];
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const scene = document.getElementById("scene");
+
+/* =====================================================
+   ESCAPAR HTML
+===================================================== */
+
+function escaparHTML(texto) {
+
+    return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+/* =====================================================
+   MENSAJE SIN PARTICIPANTES
+===================================================== */
+
+function mostrarSinParticipantes() {
+
+    const viejo = document.querySelector(".sinParticipantes");
+
+    if (viejo) viejo.remove();
+
+    const mensaje = document.createElement("div");
+
+    mensaje.className = "sinParticipantes";
+
+    mensaje.innerHTML = `
+        <h2>🎁⚠️ NO HAY PARTICIPANTES</h2>
+
+        <p>
+            La ruleta toma los participantes
+            desde el puesto <strong>#11</strong>
+            en adelante.
+            <br><br>
+            Además, deben tener
+            <strong>20 puntos o más</strong>.
+            <br><br>
+            ¡Sigue registrando puntos para participar!
+        </p>
+    `;
+
+    scene.appendChild(mensaje);
+}
+
+/* =====================================================
+   CREAR PELOTITAS
+===================================================== */
+
+function crear() {
+
+    /* DETENER ANIMACIÓN ANTERIOR */
+
+    if (girando) {
+        girando = false;
+        cancelAnimationFrame(animacion);
+    }
+
+    /* LIMPIAR PELOTITAS */
+
+    balls.forEach(bola => {
+        if (bola.parentNode) {
+            bola.remove();
+        }
+    });
+
+    balls = [];
+
+    /* SI NO HAY PARTICIPANTES */
+
+    if (jugadores.length === 0) {
+        mostrarSinParticipantes();
+        return;
+    }
+
+    const viejo = document.querySelector(".sinParticipantes");
+
+    if (viejo) viejo.remove();
+
+    /* CREAR BOLAS */
+
+    jugadores.forEach((j, i) => {
+
+        const div = document.createElement("div");
+
+        div.className = "ball";
+
+        div.innerHTML = `
+            <div class="nombre">
+                ${escaparHTML(j.nombre)}
+            </div>
+
+            <div class="puntos">
+                ⭐ ${j.total} pts
+            </div>
+        `;
+
+        div.dataset.nombre = j.nombre;
+        div.dataset.puntos = j.total;
+
+        const color = colores[i % colores.length];
+
+        div.style.background = `
+            radial-gradient(
+                circle at 30% 25%,
+                #ffffff,
+                ${color}
+            )
+        `;
+
+        const ancho = window.innerWidth;
+        const alto = window.innerHeight;
+
+        const tamano = ancho <= 700 ? 85 : 120;
+
+        const limiteX = Math.max(0, ancho - tamano);
+        const limiteY = Math.max(0, alto - tamano - 200);
+
+        div.x = Math.random() * limiteX;
+        div.y = 160 + Math.random() * limiteY;
+
+        div.vx = Math.random() * 8 - 4;
+        div.vy = Math.random() * 8 - 4;
+
+        if (Math.abs(div.vx) < 2) {
+            div.vx = div.vx < 0 ? -2 : 2;
+        }
+
+        if (Math.abs(div.vy) < 2) {
+            div.vy = div.vy < 0 ? -2 : 2;
+        }
+
+        div.style.left = div.x + "px";
+        div.style.top = div.y + "px";
+
+        scene.appendChild(div);
+
+        balls.push(div);
+
+    });
+
+}
+
+/* =====================================================
+   MOVIMIENTO
+===================================================== */
+
+function mover() {
+
+    if (!girando) return;
+
+    const tamano = window.innerWidth <= 700 ? 85 : 120;
+
+    const limiteX = Math.max(0, window.innerWidth - tamano);
+    const limiteY = Math.max(145, window.innerHeight - tamano);
+
+    balls.forEach(bola => {
+
+        bola.x += bola.vx;
+        bola.y += bola.vy;
+
+        if (bola.x <= 0 || bola.x >= limiteX) {
+
+            bola.vx *= -1;
+
+            bola.x = Math.max(
+                0,
+                Math.min(bola.x, limiteX)
+            );
+        }
+
+        if (bola.y <= 145 || bola.y >= limiteY) {
+
+            bola.vy *= -1;
+
+            bola.y = Math.max(
+                145,
+                Math.min(bola.y, limiteY)
+            );
+        }
+
+        bola.style.left = bola.x + "px";
+        bola.style.top = bola.y + "px";
+
+    });
+
+    animacion = requestAnimationFrame(mover);
+}
+
+/* =====================================================
+   INICIAR RULETA
+===================================================== */
+
+function iniciar() {
+
+    if (girando) return;
+
+    if (balls.length === 0) {
+        alert("❌ No hay participantes disponibles.");
+        return;
+    }
+
+    balls.forEach(bola => {
+        bola.classList.remove("win");
+        bola.style.opacity = "1";
+    });
+
+    ganadorActual = null;
+    ganadorJugador = null;
+
+    document.getElementById("ganador").textContent =
+        "🎡 ¡LA RULETA ESTÁ GIRANDO!";
+
+    girando = true;
+
+    mover();
+}
+
+/* =====================================================
+   DETENER Y ELEGIR GANADOR
+===================================================== */
+
+function detener() {
+
+    if (!girando) return;
+
+    girando = false;
+
+    cancelAnimationFrame(animacion);
+
+    if (balls.length === 0) return;
+
+    const index = Math.floor(Math.random() * balls.length);
+
+    const ganador = balls[index];
+
+    ganadorActual = ganador.dataset.nombre;
+
+    const puntos = Number(ganador.dataset.puntos);
+
+    ganadorJugador = jugadores.find(
+        jugador => jugador.nombre === ganadorActual
+    );
+
+    /* OSCURECER LOS DEMÁS */
+
+    balls.forEach(bola => {
+        bola.style.opacity = ".18";
+    });
+
+    ganador.style.opacity = "1";
+
+    ganador.classList.add("win");
+
+    /* CENTRAR GANADOR */
+
+    const tamano = window.innerWidth <= 700 ? 85 : 120;
+
+    ganador.style.left =
+        (window.innerWidth / 2 - tamano / 2) + "px";
+
+    ganador.style.top =
+        (window.innerHeight / 2 - tamano / 2) + "px";
+
+    /* MOSTRAR GANADOR */
+
+    document.getElementById("ganador").textContent =
+        "🎉 GANADOR: " + ganadorActual +
+        " • ⭐ " + puntos + " PTS";
+
+    document.getElementById("nombreGanador").textContent =
+        ganadorActual;
+
+    document.getElementById("puntosGanador").textContent =
+        "⭐ " + puntos + " puntos";
+
+    document.getElementById("mensajeConteo").textContent = "";
+    document.getElementById("numero").textContent = "";
+
+    document.getElementById("modal").style.display = "block";
+
+    /* GUARDAR HISTORIAL */
+
+    historial.push({
+        numero: historial.length + 1,
+        nombre: ganadorActual,
+        puntos: puntos,
+        fecha: new Date().toLocaleString("es-PE")
+    });
+
+    localStorage.setItem(
+        KEY_HISTORIAL,
+        JSON.stringify(historial)
+    );
+
+    /*
+       RETIRAR GANADOR DE LA RULETA ACTUAL.
+
+       NO SE ELIMINA DE LA LISTA PRINCIPAL.
+    */
+
+    jugadores = jugadores.filter(
+        jugador => jugador.nombre !== ganadorActual
+    );
+
+    localStorage.setItem(
+        KEY_RULETA,
+        JSON.stringify(jugadores)
+    );
+}
+
+/* =====================================================
+   CERRAR MODAL
+===================================================== */
+
+function cerrarModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+    clearInterval(tiempoConteo);
+
+    ganadorActual = null;
+    ganadorJugador = null;
+
+    /*
+       RECARGAR PARTICIPANTES DESDE
+       LA LISTA PRINCIPAL.
+    */
+
+    cargarDatos();
+
+    crear();
+
+    document.getElementById("ganador").textContent = "";
+}
+
+/* =====================================================
+   INICIAR CONTEO
+===================================================== */
+
+function iniciarConteo() {
+
+    if (!ganadorActual) {
+        alert("❌ Primero debe salir un ganador.");
+        return;
+    }
+
+    clearInterval(tiempoConteo);
+
+    document.getElementById("mensajeConteo").innerHTML =
+        "🎤 " + escaparHTML(ganadorActual) +
+        "<br><br>POR FAVOR PRESENTE<br>ESPERE 5 SEGUNDOS";
+
+    let espera = 5;
+
+    document.getElementById("numero").textContent = espera;
+
+    tiempoConteo = setInterval(() => {
+
+        espera--;
+
+        document.getElementById("numero").textContent = espera;
+
+        if (espera <= 0) {
+            clearInterval(tiempoConteo);
+            hacerCuenta();
+        }
+
+    }, 1000);
+}
+
+/* =====================================================
+   CUENTA REGRESIVA
+===================================================== */
+
+function hacerCuenta() {
+
+    let numero = 10;
+
+    document.getElementById("mensajeConteo").innerHTML =
+        "🎤 " + escaparHTML(ganadorActual) +
+        "<br>PREPÁRESE...";
+
+    document.getElementById("numero").textContent = numero;
+
+    tiempoConteo = setInterval(() => {
+
+        numero--;
+
+        document.getElementById("numero").textContent = numero;
+
+        if (numero <= 0) {
+
+            clearInterval(tiempoConteo);
+
+            document.getElementById("mensajeConteo").innerHTML =
+                "🎤 " + escaparHTML(ganadorActual) +
+                "<br>¿ESTARÁ PRESENTE?";
+
+            document.getElementById("numero").textContent = "";
+        }
+
+    }, 1500);
+}
+
+/* =====================================================
+   DETENER CONTEO
+===================================================== */
+
+function pararConteo() {
+
+    clearInterval(tiempoConteo);
+
+    if (!ganadorActual) return;
+
+    document.getElementById("mensajeConteo").innerHTML =
+        "✅ PRESENTADO:<br>" + escaparHTML(ganadorActual);
+
+    document.getElementById("numero").textContent = "";
+}
+
+/* =====================================================
+   HISTORIAL
+===================================================== */
+
+function mostrarHistorial() {
+
+    const caja = document.getElementById("listaHistorial");
+
+    caja.innerHTML = "";
+
+    if (historial.length === 0) {
+
+        caja.innerHTML = `
+            <div class="sinGanadores">
+                🎁 Todavía no hay ganadores.
+                <br><br>
+                ¡La ruleta está esperando su primer ganador!
+            </div>
+        `;
+
+    } else {
+
+        historial.forEach(ganador => {
+
+            const div = document.createElement("div");
+
+            div.className = "itemHistorial";
+
+            const numero = document.createElement("div");
+            numero.className = "numeroGanador";
+            numero.textContent =
+                "🏆 GANADOR " + ganador.numero +
+                " • ⭐ " + (ganador.puntos ?? 0) + " pts";
+
+            const nombre = document.createElement("div");
+            nombre.className = "nombreGanador";
+
+            const nombreTexto = document.createElement("div");
+            nombreTexto.textContent = ganador.nombre;
+
+            const fecha = document.createElement("small");
+            fecha.textContent = ganador.fecha || "";
+
+            nombre.append(nombreTexto, fecha);
+            div.append(numero, nombre);
+
+            caja.appendChild(div);
+
+        });
+    }
+
+    document.getElementById("historialModal").style.display = "block";
+}
+
+/* =====================================================
+   CERRAR HISTORIAL
+===================================================== */
+
+function cerrarHistorial() {
+
+    document.getElementById("historialModal").style.display = "none";
+}
+
+/* =====================================================
+   ACTUALIZAR PARTICIPANTES
+===================================================== */
+
+function recargarParticipantes() {
+
+    if (girando) {
+        alert("🛑 Primero detén la ruleta.");
+        return;
+    }
+
+    cargarDatos();
+    crear();
+
+    document.getElementById("ganador").textContent = "";
+
+    alert(
+        "🎁✅ Participantes actualizados.\n\n" +
+        "La ruleta utiliza:\n" +
+        "• Puestos 11 en adelante\n" +
+        "• Mínimo 20 puntos"
+    );
+}
+
+/* =====================================================
+   CAMBIO DE TAMAÑO
+===================================================== */
+
+window.addEventListener("resize", () => {
+
+    if (!girando) {
+        crear();
+    }
+
+});
+
+/* =====================================================
+   INICIO DEL SISTEMA
+===================================================== */
+
+cargarHistorial();
+cargarDatos();
+crear();
+
+</script>
+
+</body>
+</html>

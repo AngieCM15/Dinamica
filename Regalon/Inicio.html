@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#a00020">
+    <meta name="description" content="Pozito Regalón 2026 - Sistema de puntajes y ranking">
+
+    <title>🎁 Pozito Regalón 2026</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="fondo"></div>
+
+<header class="header">
+
+    <div class="tituloBox">
+
+        <img
+            src="imagen.jpeg"
+            class="logo"
+            alt="Logo Pozito Regalón"
+        >
+
+        <div class="tituloTexto">
+
+            <h1>
+                🎁 POZITO REGALÓN 🎁
+            </h1>
+
+            <p>
+                ⭐ Sistema de Puntajes y Ranking ⭐
+            </p>
+
+            <span>
+                🎉 04 de octubre al 22 de diciembre de 2026 🎉
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="fechaHora">
+
+        <div id="fechaActual">
+            📅 Cargando fecha...
+        </div>
+
+        <div id="horaActual">
+            🕒 Cargando hora...
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="estadisticas">
+
+    <div class="card">
+
+        <div class="icono">👥</div>
+
+        <div>
+            <h2 id="cantidadJugadores">0</h2>
+            <p>Participantes</p>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icono">👑</div>
+
+        <div>
+            <h2 id="liderActual">-</h2>
+            <p>Líder del Pozito</p>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icono">⭐</div>
+
+        <div>
+            <h2 id="puntosTotales">0</h2>
+            <p>Puntos acumulados</p>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icono">🏆</div>
+
+        <div>
+            <h2 id="promedioPuntos">0</h2>
+            <p>Promedio de puntos</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="botones">
+
+    <button
+        class="btn verde"
+        onclick="agregarJugador()">
+        ➕ Agregar Participante
+    </button>
+
+
+    <button
+        class="btn azul"
+        onclick="mostrarResumen()">
+        📋 Ver Resumen
+    </button>
+
+
+    <button
+        class="btn naranja"
+        onclick="irRuleta()">
+        🎡 Ruleta Regalona
+    </button>
+
+
+    <button
+        class="btn rojo"
+        onclick="vaciarTodo()">
+        🗑 Vaciar Todo
+    </button>
+
+
+    <button
+        class="btn morado"
+        onclick="activarJuly()">
+        🎤 JULY
+    </button>
+
+
+    <button
+        class="btn negro"
+        onclick="modoOscuro()">
+        🌙 Modo Oscuro
+    </button>
+
+</section>
+
+
+<section class="panel">
+
+    <div class="busqueda">
+
+        <input
+            id="buscador"
+            type="text"
+            placeholder="🔍 Buscar participante..."
+            oninput="renderTabla()"
+        >
+
+        <select
+            id="orden"
+            onchange="renderTabla()">
+
+            <option value="puntaje">
+                🏆 Mayor Puntaje
+            </option>
+
+            <option value="az">
+                🔤 Orden A - Z
+            </option>
+
+            <option value="za">
+                🔤 Orden Z - A
+            </option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+<section class="ranking">
+
+    <h2>
+        🎁🏆 GRAN RANKING REGALÓN 🏆🎁
+    </h2>
+
+    <div id="podio"></div>
+
+</section>
+
+
+<section class="tablaBox">
+
+    <div class="tablaTitulo">
+
+        <h2>
+            ⭐ TABLA DE PUNTAJES ⭐
+        </h2>
+
+        <p>
+            🎁 Pozito Regalón 2026 🎁
+        </p>
+
+    </div>
+
+
+    <div class="tablaScroll">
+
+        <table>
+
+            <thead>
+
+                <tr id="encabezado">
+
+                    <th>PARTICIPANTE</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tbody"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    🎁 POZITO REGALÓN 🎁 2026
+
+    <br>
+
+    ⭐ Sistema Inteligente de Competencia ⭐
+
+    <br>
+
+    🎉 03 de noviembre al 02 de diciembre de 2026 🎉
+
+    <br>
+
+    🏆 ¡Que gane el más regalón! 🏆
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
